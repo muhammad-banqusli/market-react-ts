@@ -6,6 +6,8 @@ import {
     useReducer,
 } from "react";
 
+import { z } from "zod";
+
 export type CartItemType = {
     id: number;
     title: string;
@@ -17,11 +19,40 @@ export type CartItemType = {
 
 type CartStateType = { cart: CartItemType[] };
 
-const retreivedCart = { cart: JSON.parse(localStorage.getItem("cart") || "") };
+let localCart: string | null = localStorage.getItem("cart");
 
-const initCartState: CartStateType = retreivedCart
-    ? retreivedCart
-    : { cart: [] };
+if (!localCart) localCart = ''
+
+let retreivedCart
+
+if (localCart) retreivedCart = { cart: JSON.parse(localCart) };
+
+const CartStateTypeSchema = z.object({
+    cart: z.array(
+        z.object({
+            id: z.number(),
+            title: z.string(),
+            price: z.number(),
+            category: z.string(),
+            image: z.string(),
+            qty: z.number(),
+        })
+    ),
+});
+
+function isCartStateType(obj: any): obj is { cart: CartItemType[] } {
+    try {
+        CartStateTypeSchema.parse(obj);
+        return true;
+    } catch (error) {
+        return false;
+    }
+}
+
+let initCartState: CartStateType;
+
+if (isCartStateType(retreivedCart)) initCartState = retreivedCart;
+else initCartState = { cart: [] };
 
 const REDUCER_ACTION_TYPE = {
     ADD: "ADD",
