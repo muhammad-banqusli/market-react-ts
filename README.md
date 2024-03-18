@@ -1,30 +1,17 @@
-# React + TypeScript + Vite
+# Cart with React and TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a practice implementation of a TypeScript React application for managing a shopping cart. It utilizes the `useContext` and `useReducer` hooks for state management. The project was inspired by a tutorial from [Dave Gray](https://www.youtube.com/@DaveGrayTeachesCode).
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Cart Management**: Utilizes `useContext` and `useReducer` hooks for managing the shopping cart state.
+- **Local Storage Integration**: Implements local storage functionality to persist cart data even after refreshing the page.
+- **Customized Design**: The project features customized styling using CSS to enhance the user interface.
 
-## Expanding the ESLint configuration
+## Description
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This project serves as a practice exercise in building a shopping cart application using TypeScript and React. While based on a tutorial by [Dave Gray](https://www.youtube.com/@DaveGrayTeachesCode), significant contributions have been made to the project. Notably, custom design elements and CSS styles have been added to enhance the visual appeal of the application. Additionally, the functionality to persist cart data using local storage has been implemented, providing users with a seamless shopping experience even across browser sessions.
 
-- Configure the top-level `parserOptions` property like this:
+## Demo
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Check out the [demo](https://market-react-jzdv1oduc-mohammad-nour-banquslis-projects.vercel.app/) to see the project in action.
